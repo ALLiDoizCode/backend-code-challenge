@@ -1,6 +1,7 @@
 var NodeGeocoder = require('node-geocoder');
-var storeLocation = require('./StoreLocation');
-
+var storeLocation = require('../StoreLocation');
+const dotenv = require('dotenv');
+dotenv.config();
 var exports = module.exports = {};
 
 var options = {
@@ -8,7 +9,7 @@ var options = {
 
     // Optional depending on the providers
     httpAdapter: 'https', // Default
-    apiKey: process.env.KEY, // for Mapquest, OpenCage, Google Premier
+    apiKey: process.env.APP_KEY, // for Mapquest, OpenCage, Google Premier
     //formatter: null         // 'gpx', 'string', ...
 };
 
