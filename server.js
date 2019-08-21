@@ -1,4 +1,18 @@
-var geo = require('./Geo');
+var express = require('express');
+var cors = require('cors');
+
+const app = express();
+app.use(cors());
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+  });
+
+app.listen(process.env.PORT, () =>
+  console.log('Example app listening on port 3000!'),
+);
+
+/*var geo = require('./Geo');
 
 geo.geocoder.geocode({ address: '3435 toomer kiln circle', country: 'US', zipcode: '29466' }, function (err, res) {
     console.log(res);
@@ -13,6 +27,6 @@ geo.geocoder.geocode({ address: '3435 toomer kiln circle', country: 'US', zipcod
     console.log(km.toFixed(1) + "km")
     console.log(geo.toMiles(km).toFixed(1) + "m")
 
-});
+});*/
 
 

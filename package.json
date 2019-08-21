@@ -2,13 +2,16 @@
   "name": "backend-code-challenge",
   "version": "1.0.0",
   "description": "A simple server that can query the dataset and find the nearest store to a provided address or zip code",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "test.js"
   },
   "author": "AlliDoizCode",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "node-geocoder": "^3.23.0"
   }
 }
