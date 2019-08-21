@@ -1,4 +1,5 @@
 var NodeGeocoder = require('node-geocoder');
+var storeLocation = require('./StoreLocation');
 
 var exports = module.exports = {};
 
@@ -11,8 +12,8 @@ var options = {
     //formatter: null         // 'gpx', 'string', ...
 };
 
-let getDistance = (p1, p2) => {
-    return Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2))
+let getDistance = (location1, location2) => {
+    return Math.sqrt(Math.pow(location1.Longitude - location2.Longitude, 2) + Math.pow(location1.Latitude - location2.Latitude, 2))
 }
 
 
@@ -38,7 +39,11 @@ exports.calcCrow = (lat1, lon1, lat2, lon2) => {
 
 exports.geocoder = NodeGeocoder(options)
 
-exports.getNearest = (point, points) => {
-    var result = points.reduce((min, p) => getDistance(min, point) < getDistance(p, point) ? min : p)
+exports.getNearest = (point) => {
+    var result = storeLocation.stores.reduce((min, p) => getDistance(min, point) < getDistance(p, point) ? min : p)
     return result
+}
+
+exports.toMiles = (km) => {
+    return km/1.6
 }
