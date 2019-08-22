@@ -1,32 +1,10 @@
-# Coding challenge
+# How It Works
 
-In this folder there is store-locations.csv
+This appilicaiton consist of 4 components, the server, routes, services and Utilities. 
 
-This is a tabular dataset of the locations of every store of a major national retail chain.
+### server
 
-# Deliverables
-
-Write a simple server that can query the dataset and find the nearest store to a provided address or zip code
-
-```
-Find Store
-  Your server will locate the nearest store (as the crow flies) from
-  store-locations.csv, return the matching store address, as well as
-  the distance to that store in JSON format
-
-Usage:
-  {server}/closest?zip=<zip>
-  {server}/closest?address=<address>
-  {server}/closest?zip=<zip>&units=<(mi|km)>
-
-Options:
-  ?zip=<zip>            Find nearest store to this zip code. If there are multiple best-matches, return the first.
-  ?address=<address>  Find nearest store to this address. If there are multiple best-matches, return the first.
-  ?units=(mi|km)        Display units in miles or kilometers [default: mi]
-
-Note:
-  addresses should be encoded for the URI
-```
+## Assumptions Or Caveats
 
 Additionally:
 

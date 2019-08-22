@@ -1,4 +1,4 @@
-var geo = require('./Geo');
+var geo = require('../Util/Geo');
 var exports = module.exports = {};
 
 exports.findStore = (units, address, zip) => {
