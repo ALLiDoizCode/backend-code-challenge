@@ -1,7 +1,10 @@
 # How It Works
 
->npm install
->npm start
+>Running Server
+
+```cmd
+npm install
+npm start
 
 ## Overview
 
