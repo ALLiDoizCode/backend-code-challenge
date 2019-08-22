@@ -30,3 +30,10 @@ Utilities is all the code we need to write to reflect the real world problem tha
 ### Stackoverflow
 
 [As The Crow Files](https://stackoverflow.com/questions/18883601/function-to-calculate-distance-between-two-coordinates)
+[Distance](https://stackoverflow.com/questions/51318864/how-to-find-out-which-cordinates-are-closest?noredirect=1&lq=1)
+
+## Testing
+
+All test are in the tests folder and are tested using [Mocha](https://github.com/mochajs/mocha) [Chai](https://github.com/chaijs/chai) and [Chai-Http](https://github.com/chaijs/chai-http)
+
+> npm test
