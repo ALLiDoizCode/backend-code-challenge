@@ -1,16 +1,13 @@
 var express = require('express');
 var cors = require('cors');
-var geoService = require('./Services/GeoService')
+const geoRoutes = require('./routes/GeoRoutes');
 const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
 app.use(cors());
 
-app.get('/', async (req, res) => {
-   var data = await geoService.findStore("mi", "3435 toomer kiln circle", "29466")
-   res.json(data);
-});
+app.get('/closest',geoRoutes.closest);
 
 app.listen(process.env.PORT, () =>
     console.log('Example app listening on port 3000!'),
