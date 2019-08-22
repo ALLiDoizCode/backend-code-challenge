@@ -26,7 +26,15 @@ describe("Stores", () => {
                  .get('/closest?zip='+zip)
                  .end((err, res) => {
                      res.should.have.status(200);
-                     res.body.should.be.a('object');
+                     res.should.be.json;
+                     res.body.should.have.property('address');
+                     res.body.should.have.property('Store Location');
+                     res.body.should.have.property('unit');
+                     res.body.should.have.property('distance');
+                     res.body.address.should.equal('255 Greenwich St');
+                     res.body['Store Location'].should.equal('Greenwich & Murray');
+                     res.body.unit.should.equal('mi');
+                     res.body.distance.should.equal('1.7');
                      done();
                   });
          });
@@ -38,6 +46,15 @@ describe("Stores", () => {
                  .get('/closest?address='+address)
                  .end((err, res) => {
                      res.should.have.status(200);
+                     res.should.be.json;
+                     res.body.should.have.property('address');
+                     res.body.should.have.property('Store Location');
+                     res.body.should.have.property('unit');
+                     res.body.should.have.property('distance');
+                     res.body.address.should.equal('255 Greenwich St');
+                     res.body['Store Location'].should.equal('Greenwich & Murray');
+                     res.body.unit.should.equal('mi');
+                     res.body.distance.should.equal('1.4');
                      done();
                   });
          });
@@ -49,6 +66,15 @@ describe("Stores", () => {
                 .get('/closest?unit=km&address='+address)
                 .end((err, res) => {
                     res.should.have.status(200);
+                    res.should.be.json;
+                    res.body.should.have.property('address');
+                    res.body.should.have.property('Store Location');
+                    res.body.should.have.property('unit');
+                    res.body.should.have.property('distance');
+                    res.body.address.should.equal('255 Greenwich St');
+                    res.body['Store Location'].should.equal('Greenwich & Murray');
+                    res.body.unit.should.equal('km');
+                    res.body.distance.should.equal('2.2');
                     done();
                  });
         });
@@ -60,7 +86,15 @@ describe("Stores", () => {
                 .get('/closest?unit=km&zip='+zip)
                 .end((err, res) => {
                     res.should.have.status(200);
-                    res.body.should.be.a('object');
+                    res.should.be.json;
+                    res.body.should.have.property('address');
+                    res.body.should.have.property('Store Location');
+                    res.body.should.have.property('unit');
+                    res.body.should.have.property('distance');
+                    res.body.address.should.equal('255 Greenwich St');
+                    res.body['Store Location'].should.equal('Greenwich & Murray');
+                    res.body.unit.should.equal('km');
+                    res.body.distance.should.equal('2.7');
                     done();
                  });
         });
