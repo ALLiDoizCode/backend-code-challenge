@@ -1,16 +1,6 @@
-var NodeGeocoder = require('node-geocoder');
 var storeLocation = require('../StoreLocation');
-const dotenv = require('dotenv');
-dotenv.config();
-var exports = module.exports = {};
 
-var options = {
-    provider: 'mapquest',
-    // Optional depending on the providers
-    httpAdapter: 'https', // Default
-    apiKey: process.env.APP_KEY, // for Mapquest, OpenCage, Google Premier
-    //formatter: null         // 'gpx', 'string', ...
-};
+var exports = module.exports = {};
 
 let getDistance = (location1, location2) => {
     return Math.sqrt(Math.pow(location1.Longitude - location2.Longitude, 2) + Math.pow(location1.Latitude - location2.Latitude, 2))
@@ -35,8 +25,6 @@ exports.calcCrow = (lat1, lon1, lat2, lon2) => {
     var d = R * c;
     return d;
 }
-
-exports.geocoder = NodeGeocoder(options)
 
 exports.getNearest = (point) => {
     var result = storeLocation.stores.reduce((min, p) => getDistance(min, point) < getDistance(p, point) ? min : p)

@@ -1,9 +1,22 @@
 var geo = require('../Util/Geo');
+var NodeGeocoder = require('node-geocoder');
+const dotenv = require('dotenv');
+dotenv.config();
+var options = {
+    provider: 'mapquest',
+    // Optional depending on the providers
+    httpAdapter: 'https', // Default
+    apiKey: process.env.APP_KEY, // for Mapquest, OpenCage, Google Premier
+    //formatter: null         // 'gpx', 'string', ...
+};
+
+const geocoder = NodeGeocoder(options)
+
 var exports = module.exports = {};
 
 exports.findStore = (units, address, zip) => {
     return new Promise(function (resolve, reject) {
-        return geo.geocoder.geocode({ address: address, zipcode: zip }).then((res) => {
+        return geocoder.geocode({ address: address, zipcode: zip }).then((res) => {
             const point = {
                 "Latitude": res[0].latitude,
                 "Longitude": res[0].longitude

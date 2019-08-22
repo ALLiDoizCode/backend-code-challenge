@@ -4,8 +4,6 @@ const geoRoutes = require('./routes/GeoRoutes');
 const dotenv = require('dotenv');
 dotenv.config();
 
-var exports = module.exports = {};
-
 const app = express();
 app.use(cors());
 app.get('/closest', geoRoutes.closest);
