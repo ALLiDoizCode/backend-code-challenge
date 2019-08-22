@@ -1,7 +1,7 @@
 var geo = require('./Geo');
 var exports = module.exports = {};
 
-exports.findStore = (unit, address, zip) => {
+exports.findStore = (units, address, zip) => {
     return new Promise(function (resolve, reject) {
         return geo.geocoder.geocode({ address: address, zipcode: zip }).then((res) => {
             const point = {
@@ -16,7 +16,7 @@ exports.findStore = (unit, address, zip) => {
                 "unit": "mi",
                 "distance": geo.toMiles(km).toFixed(1)
             }
-            if (unit == "km") {
+            if (units == "km") {
                 result.unit = "km"
                 result.distance = km.toFixed(1)
             }
