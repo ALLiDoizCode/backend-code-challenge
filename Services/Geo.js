@@ -6,7 +6,6 @@ var exports = module.exports = {};
 
 var options = {
     provider: 'mapquest',
-
     // Optional depending on the providers
     httpAdapter: 'https', // Default
     apiKey: process.env.APP_KEY, // for Mapquest, OpenCage, Google Premier
@@ -16,7 +15,6 @@ var options = {
 let getDistance = (location1, location2) => {
     return Math.sqrt(Math.pow(location1.Longitude - location2.Longitude, 2) + Math.pow(location1.Latitude - location2.Latitude, 2))
 }
-
 
 // Converts numeric degrees to radians
 function toRad(Value) {
@@ -46,5 +44,5 @@ exports.getNearest = (point) => {
 }
 
 exports.toMiles = (km) => {
-    return km/1.6
+    return km / 1.6
 }

@@ -1,12 +1,11 @@
 var exports = module.exports = {};
 var geoService = require('../Services/GeoService')
 
-exports.closest = async (req, res) => {
-    const unit = req.query.unit
-    const address = req.query.address
-    const zip = req.query.zip
-
-    var data = await geoService.findStore(unit, address, zip)
-    res.json(data);
- };
+exports.closest = async (req, res, next) => {
+    const data = await geoService.findStore(req.query.unit, req.query.address, req.query.zip).catch((error) => {
+        res.status(400).send(error+"")
+        throw error
+    })
+    res.json(data)
+};
 
