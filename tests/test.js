@@ -14,8 +14,10 @@ describe("Stores", () => {
              chai.request('http://localhost:3000')
                  .get('/closest')
                  .end((err, res) => {
+                     console.log(res)
                      res.should.have.status(400);
-                     res.body.should.be.a('object');
+                     res.text.should.be.string;
+                     res.text.should.equal('Error: Status is 400 Illegal argument from request: Insufficient info for location');
                      done();
                   });
          });
