@@ -1,5 +1,8 @@
 # How It Works
 
+>npm install
+>npm start
+
 ## Overview
 
 This application consist of 4 components, the server, routes, services and Utilities. 
